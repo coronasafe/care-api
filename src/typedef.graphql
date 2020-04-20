@@ -11,16 +11,16 @@ type Mutation {
   delete(_id: String!): CareApiType
 }
 
-type Subscription {
-  # Subscription Definitions
-  updatedCareApiData: CareApiType
-}
+# type Subscription {
+#   # Subscription Definitions
+#   updatedCareApiData: CareApiType
+# }
 
 type CareApiType {
+  id: Int
   message: String
 }
 
 input CareApiInput {
   message: String
 }
-

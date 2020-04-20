@@ -1,18 +1,31 @@
-import { pubsub } from './helpers';
+// import { pubsub } from './helpers';
+import * as pg from 'pg';
 
 const CareApi_UPDATE = "CareApi_UPDATE";
 
 export const CareApiResolver = {
-  Subscription: {
-    // subscriptions
-    updatedCareApiData: {
-      subscribe: () => pubsub.asyncIterator(CareApi_UPDATE)
-    },
-  },
+  // Subscription: {
+  //   // subscriptions
+  //   updatedCareApiData: {
+  //     subscribe: () => pubsub.asyncIterator(CareApi_UPDATE)
+  //   },
+  // },
   Query: {
     // queries
     list(root: any, args: any, ctx: any) {
-      return [{message: 'GET API for CareApi microservice'}];
+      console.log(process.env.DB_PASSWORD);
+      const Client = new pg.Client("postgres://" + "postgres" +
+        ":" + "postgres" + "@" + "localhost:5433" + "/" + "test");
+      Client.connect();
+      return Client.query(`SELECT *	FROM test_schema.graphqltest;`)
+        .then(res => {
+          Client.end();
+          return res.rows;
+        })
+        .catch(err => {
+          console.log(err);
+          return err;
+        });
     },
     get(root: any, args: any, ctx: any) {
       // fetch the id from args.id
