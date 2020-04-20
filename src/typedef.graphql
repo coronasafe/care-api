@@ -1,0 +1,26 @@
+type Query {
+  # Query Definitions
+  list: [CareApiType]
+  get(ID: ID!): CareApiType
+}
+
+type Mutation {
+  # Mutation Definitions
+  create(input: CareApiInput): CareApiType
+  update(input: CareApiInput): CareApiType
+  delete(_id: String!): CareApiType
+}
+
+type Subscription {
+  # Subscription Definitions
+  updatedCareApiData: CareApiType
+}
+
+type CareApiType {
+  message: String
+}
+
+input CareApiInput {
+  message: String
+}
+
