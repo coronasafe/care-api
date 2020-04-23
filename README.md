@@ -1,7 +1,7 @@
 CareApi Microservice
 =================================================
 
-One platform's server-side CareApi GraphQL microservice.
+Server-side CareApi GraphQL microservice.
 
 ### Switch the working directory into `cd care-api-service`.
 
