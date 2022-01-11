@@ -55,7 +55,7 @@
     "lodash": "^4.17.15",
     "method-override": "^3.0.0",
     "morgan": "^1.9.1",
-    "nodemon-webpack-plugin": "^4.2.2",
+    "nodemon-webpack-plugin": "^4.5.2",
     "pg": "^8.0.2",
     "supertest": "^4.0.2",
     "ts-jest": "^25.2.0",
